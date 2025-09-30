@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -33,6 +34,8 @@ app.get('/professional', (req, res) => {
   res.send(data);
 });
  
+app.use('/contacts', require('./routes/contacts'));
+
 app.listen(PORT, () => {
-  console.log(`Web Server is listening at http://localhost:${PORT}/professional`);
+  console.log(`Web Server is listening at http://localhost:${PORT}/`);
 });
